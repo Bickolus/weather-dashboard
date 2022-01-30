@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- link to Bootstrap -->
+    <!-- Link to Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -14,16 +14,109 @@
 
 <body>
 
-    <header class="container-fluid bg-dark p-3">
+    <header class="container-fluid bg-info p-3">
         <h1 class="text-center text-light">Weather Dashboard</h1>
     </header>
 
-    <aside class="col-3 container">
-        <h2>Search for a City:</h2>
-    </aside>
+    <main class="container-fluid">
+        <div class="row">
+    
+            <!-- The aside with the search bar -->
+            <aside class="col-3 container p-3">
+    
+                <h2>Search for a City:</h2>
+                <form class="d-flex align-items-center my-3 pb-4 border-bottom border-info" id="search-form">
+                    <input type="search" class="form-control" id="search-input" placeholder="Toronto">
+                    <button type="submit" class="btn btn-info ml-1"><span class="fas fa-search"></span></button>
+                </form>
+    
+                <!-- Search history, will have buttons show after user makes searches -->
+                <div class="btn-group-vertical w-100 h-25 justfy-content-start overflow-auto" id="search-history">
+    
+                </div>
+    
+            </aside>
+    
+            <!-- Meat of the page, with weather data of the city -->
+            <section class="col-9 container p-3">
+    
+                <!-- Today's weather container -->
+                <div class="my-3 p-3 border-left border-info rounded">
+    
+                    <h2><span id="current-city"></span>&nbsp;<img id="current-weather-icon" src="" alt="icon for current weather"></h2>
+                    <h5>Temp: <span id="temp-today"></span>°C</h4>
+                    <h5>Wind: <span id="wind-today"></span>&nbsp;km/h</h4>
+                    <h5>Humidity: <span id="humid-today"></span>%</h4>
+                    <h5 id="uv-today-element">UV Index: <span class="px-2 py-1 rounded" id="uv-today"></span></h4>
+    
+                </div>
+    
+                <!-- Forecast cards for the next 5 days -->
+                <div class="p-3 border-left border-info rounded" id="future-weather">
+                    <h3>5-Day Forecast:</h3>
+                    <div class="card-deck">
+    
+                        <div class="card text-left bg-dark text-light p-2 mb-3" id="day-1"
+                            style="max-width: 10rem; min-width: 10rem;">
+                            <h5></h5>
+                            <img class="mx-auto p-2" src="">
+                            <p>Temp: <span class="card-temp"></span>°C</p>
+                            <p>Wind: <span class="card-wind"></span>&nbsp;km/h</p>
+                            <p>Humidity: <span class="card-humid"></span>%</p>
+                        </div>
+    
+                        <div class="card text-left bg-dark text-light p-2 mb-3" id="day-2"
+                            style="max-width: 10rem; min-width: 10rem;">
+                            <h5></h5>
+                            <img class="mx-auto p-2" src="">
+                            <p>Temp: <span class="card-temp"></span>°C</p>
+                            <p>Wind: <span class="card-wind"></span>&nbsp;km/h</p>
+                            <p>Humidity: <span class="card-humid"></span>%</p>
+                        </div>
+    
+                        <div class="card text-left bg-dark text-light p-2 mb-3" id="day-3" 
+                            style="max-width: 10rem; min-width: 10rem;">
+                            <h5></h5>
+                            <img class="mx-auto p-2" src="">
+                            <p>Temp: <span class="card-temp"></span>°C</p>
+                            <p>Wind: <span class="card-wind"></span>&nbsp;km/h</p>
+                            <p>Humidity: <span class="card-humid"></span>%</p>
+                        </div>
+    
+                        <div class="card text-left bg-dark text-light p-2 mb-3" id="day-4"
+                            style="max-width: 10rem; min-width: 10rem;">
+                            <h5></h5>
+                            <img class="mx-auto p-2" src="">
+                            <p>Temp: <span class="card-temp"></span>°C</p>
+                            <p>Wind: <span class="card-wind"></span>&nbsp;km/h</p>
+                            <p>Humidity: <span class="card-humid"></span>%</p>
+                        </div>
+    
+                        <div class="card text-left bg-dark text-light p-2 mb-3" id="day-5"
+                            style="max-width: 10rem; min-width: 10rem;">
+                            <h5></h5>
+                            <img class="mx-auto p-2" src="">
+                            <p>Temp: <span class="card-temp"></span>°C</p>
+                            <p>Wind: <span class="card-wind"></span>&nbsp;km/h</p>
+                            <p>Humidity: <span class="card-humid"></span>%</p>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </section>
+    
+        </div>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+    <script src="https://kit.fontawesome.com/d3f55370ae.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
