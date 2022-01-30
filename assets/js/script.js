@@ -85,7 +85,7 @@ function renderCityWeather(cityName) {
     $("#uv-today-element").attr("style", "display: none;");
     $("#next-weather").attr("style", "display: none;");
 
-    let currentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?units=metric&q=" + cityName + "&appid=" + apiKey;
+    let currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=" + cityName + "&appid=" + apiKey;
 
     // First we fetch data from the Current Weather Data API
     fetch(currentWeatherURL)
