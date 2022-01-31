@@ -1,4 +1,4 @@
-// Declarations (the apiKey is unqiue to my account)
+// Declarations (api key is free and therefore I don't care if it's publicly visible)
 let apiKey = "7b1ba3a9818619c3079e45f400752294";
 let historyButtonClasses = "btn btn-secondary border text-left text-light px-3 py-2";
 let dataCityAttr = "data-cityName";
